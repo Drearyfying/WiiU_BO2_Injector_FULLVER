@@ -29,6 +29,7 @@ e.g: "BO2_WiiU_Mod_List\512_Sniper_Lobby\maps\mp\develoment_dvars.gsc" (target m
 - Double-click "bo2_injector.py"
 - Have fun, **the UI is bad but intuitive**
 - Also, on your WiiU you need to launch the Homebrew launcher (HBL) and a custom TCP Gecko you can [download here (direct dl-link)](https://github.com/wj444/tcpgecko/blob/master/tcpgecko.elf?raw=true)
+- **Optional**: *the "BO2_WiiU_Mod_List.zip" is an archive containing 90+ injectable mod menus/gamemodes*
 
 # Credits
 
