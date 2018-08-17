@@ -34,6 +34,7 @@ e.g: "BO2_WiiU_Mod_List\512_Sniper_Lobby\maps\mp\develoment_dvars.gsc" (target m
 
 - Thanks for to KeyZiro (Adil) for the custom class addresses
 - Radium and nonodu88 for supporting me and helping me for testing and stuff :)
+- Thanks to libwiiu members for pyGecko
 
 # Also
 
@@ -77,6 +78,12 @@ On selectionnes: "BO2_WiiU_Mod_List\ **512_Sniper_Lobby** \maps\mp\develoment_dv
 - Lancez "bo2_injector.py"
 - Amusez-vous, **l'UI est moche mais *assez* intuitive**
 - D'ailleurs, vous devez aussi avant d'aller sur BO2, lancez l'Homebrew Launcher et une version modifié de TCPGecko [téléchargeable ici (lien de DL direct)](https://github.com/wj444/tcpgecko/blob/master/tcpgecko.elf?raw=true)
+
+# Credits
+
+- Merci a KeyZiro (Adil) pour l'addresse de la classe n°2
+- Merci a Radium et a Nonodu88 pour le débug et le fun
+- Merci aux membres de la "libwiiu" pour pyGecko
 
 # Aussi
 
