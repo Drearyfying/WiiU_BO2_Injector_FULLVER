@@ -6,7 +6,7 @@ import os
 import struct
 import tkMessageBox
 from ttk import *
-import socket, sys, urllib, urllib2, requests
+import socket, sys, urllib, urllib2
 import webbrowser
 
 import atexit
@@ -198,38 +198,12 @@ def str_end(string, ind):
 		if x == "\x00":
 			return string[ind:ind+i:1]
 
-def dl_res_file():
 
-	webbrowser.open("https://mega.nz/!QFkW1YZa!kEXVkQslsKrKCOPoMkJFRnp2fyUbt70N2m8smI6EF6Y")
+RES_TEXT = "NONE"
 
+NEWS_TEXT, LINK_NEWS, BUTTON = "NONE", "NONE", "NONE"
 
-def get_changelog():
-	url = "http://rambo6glaz.000webhostapp.com/get_changelog.php?x=1"
-	r = requests.get(url)
-	return r.content
-def get_res():
-	url = "http://rambo6glaz.000webhostapp.com/get_changelog.php?x=0"
-	r = requests.get(url)
-	return r.content
-
-
-
-def get_news():
-	url = "http://rambo6glaz.000webhostapp.com/get_changelog.php?x=2"
-	r = requests.get(url)
-	buf = r.content
-	msg = str_end(buf, 0)
-	z = 0 + len(msg) + 1
-	link = str_end(buf, z)
-	z = z + len(link) + 1
-	btn_text = str_end(buf, z)
-	return msg, link, btn_text
-
-RES_TEXT = get_res()
-
-NEWS_TEXT, LINK_NEWS, BUTTON = get_news()
-
-CHANGELOG_TEXT = get_changelog()
+CHANGELOG_TEXT = "No changelog, check Github"
 
 
 def open_news():
@@ -245,12 +219,6 @@ def connect():
 		x = tcp.readmem(name_ptr, 20)
 		x = str_end(x, 0)
 		print(x)
-		url = 'http://rambo6glaz.000webhostapp.com/update_info.php?ip='+ ip + '&uname=' + x + '&is=0' 
-		r = requests.get(url, allow_redirects=True)
-
-		thread_ac = Moderator()
-		thread_ac.start()
-
 		tcp.pokemem(0x1076f7a8, 0x000000FF)
 
 		temp_vars = []
@@ -260,26 +228,10 @@ def connect():
 
 		inj.config(state=NORMAL)
 
-		if "3" not in acc_type:
-			tcp.pokemem(0x12090C88, 0)
-			tcp.pokemem(0x12090CAC, 0)
-			tcp.pokemem(0x12090CB0, 0)
-
-
 		f_config.seek(0, 0)
 		f_config.write(ip)
 		f_config.close()
 
-
-def exit_game(msg="You have been banned, no special message."):
-	time.sleep(5)
-	OSFatal = tcp.get_symbol("coreinit.rpl", "OSFatal", True)
-	OSAllocFromSystem = tcp.get_symbol("coreinit.rpl", "OSAllocFromSystem", True)
-	ret = OSAllocFromSystem(0x800,4)
-	tcp.writestr(ret, "Username: " + sys.argv[5] + "\nMessage: " + msg + "\x00")
-	OSFatal(ret)
-	time.sleep(5)
-	sys.exit()
 
 def startGame():
 
@@ -307,10 +259,7 @@ def startGame():
 
 	print("You can now start games withtout required players.")
 
-def get_ext_ip():
-	x = "https://www.ident.me"
-	r = requests.get(x, allow_redirects=True)
-	return r.content
+
 
 def disc():
 	with verrou:
@@ -551,79 +500,10 @@ def parse_gsc_inject(direct):
 	w[h] = "None"
 	parse_inject(w, h, direct)
 
-def dl_file(str_):
-
-	p = sys.argv[2] + "\\"
-	p = p + str_
-
-	d = os.path.dirname(os.path.realpath(__file__))
-	d = d +"\\"
-
-	f = None
-
-	url = 'http://rambo6glaz.000webhostapp.com/get_dl_link.php?file=' + str_
-	r = requests.get(url, allow_redirects=True, timeout=10)
-	url = r.content
-
-	r = requests.get(url, allow_redirects=True, timeout=10)	
-
-	if "<html>" in r.content:
-		print("Server is fucked up, using existing files !")
-		return 0
-
-	if "Black" in str_:
-		f = open(p, 'w+b')
-		f.write(r.content)
-		f.close()
-
-		os.remove(p+"c")
-		py_compile.compile(p)	
-		os.remove(p)
-	
-	else:
-
-		d = os.path.dirname(os.path.realpath(__file__))
-		d = d +"\\"
-		f = open(d+str_, 'wb')
-		f.write(r.content)
-		f.close()
 
 curr_uname = ""
 
-def get_uname():
-	global curr_uname
 
-	url = "http://rambo6glaz.000webhostapp.com/query_info.php?ip=" + sys.argv[1]
-	r = requests.get(url)
-	v = r.content
-
-	curr_uname = v
-
-
-
-class Moderator(Thread):
-
-	def __init__(self):
-		Thread.__init__(self)
-
-	def run(self):
-
-
-		while True:
-
-			url = "http://rambo6glaz.000webhostapp.com/is_banned.php?uname=" + sys.argv[5]
-			r = requests.get(url)
-			v = r.content
-			msg = v[2:len(v)]
-			
-			if "1" in v and "<html>" not in v:
-				print("Wii U Shutdown, you have been banned.")
-				exit_game(msg)
-				time.sleep(8)
-				sys.exit(0)
-				
-
-			time.sleep(10)
 
 Dvar_FindVar = hex(0x025d0124).replace("0x", "0").decode("hex")
 Dvar_SetBool = hex(0x0242B6E8 + 0xBAFC0).replace("0x", "0").decode("hex")
@@ -1178,9 +1058,6 @@ b_weird.grid(row=4, column=2)
 
 bl3 = Label(tab2, text=" ")
 bl3.grid(row=5, column = 0)
-
-b_res = Button(tab2, text="Resources", command=resource)
-b_res.grid(row=6, column=1)
 
 b_chng = Button(tab2, text="Changelog/Warning", command=pop_up)
 b_chng.grid(row=7, column=1)
