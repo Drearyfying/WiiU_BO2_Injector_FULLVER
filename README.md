@@ -2,7 +2,27 @@
 
 Don't abuse it online, it's already ruined. have fun in custom games with your friends.
 
-# Usage
+# Tweaks
+
+- Inject/De-inject mod menus
+- Change your username (+Rainbow option)
+- Change all of your accounts data (prestige, level, xp etc..)
+- Kick players if you're the host (w/out mod menu)
+- Change your calling cards (even to DLC one)
+- Change your camos on Class 2 (even to DLC camos,  then just copy/paste your class to another one)
+- Non-Host hacks (No Recoil, Wallhack, Super Steady Aim, Infinite UAV
+- Dump/Restore stats (relatively slow process, up to 4min for dumping stats, up to 2min for restoring them)
+
+# Inject button usage
+
+1) Press "Inject button"
+2) Select the folder right before "/maps" folder of the mod you want to inject
+
+e.g: "BO2_WiiU_Mod_List\512_Sniper_Lobby\maps\mp\develoment_dvars.gsc" (target mod to inject = 512_Sniper_lobby)
+
+-> : "BO2_WiiU_Mod_List\ **512_Sniper_Lobby** \maps\mp\develoment_dvars.gsc" (select folder "512_Sniper_Lobby" and hit "OK"à
+
+# Injector Usage
 
 - Download and install Python 2.7.14 (be sure to check "Add python.exe to PATH" in the installer) ([Windows 64-bit installer](https://www.python.org/ftp/python/2.7.14/python-2.7.14.amd64.msi))
 - [Download](https://github.com/NexoDevelopment/WiiU_BO2_Injector_FULLVER/releases) all of these files 
