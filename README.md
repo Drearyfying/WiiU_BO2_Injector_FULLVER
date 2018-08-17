@@ -33,9 +33,10 @@ e.g: "BO2_WiiU_Mod_List\512_Sniper_Lobby\maps\mp\develoment_dvars.gsc" (target m
 
 # Credits
 
-- Thanks for to KeyZiro (Adil) for the custom class addresses
+- Thanks for to KeyZiro for the custom class addresses (weapons etc..)
 - Radium and nonodu88 for supporting me and helping me for testing and stuff :)
 - Thanks to libwiiu members for pyGecko
+- And, Thanks to LetsTimeOut (Grizzly-Modding)
 
 # Also
 
@@ -82,9 +83,10 @@ On selectionnes: "BO2_WiiU_Mod_List\ **512_Sniper_Lobby** \maps\mp\develoment_dv
 
 # Credits
 
-- Merci a KeyZiro (Adil) pour l'addresse de la classe n°2
+- Merci a KeyZiro pour les addresses des classes perso.
 - Merci a Radium et a Nonodu88 pour le débug et le fun
 - Merci aux membres de la "libwiiu" pour pyGecko
+- Dédicasse a LetsTimeOut (Grizzly-Modding)
 
 # Aussi
 
