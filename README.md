@@ -8,7 +8,6 @@ Don't abuse it online, it's already ruined. have fun in custom games with your f
 - [Download](https://github.com/NexoDevelopment/WiiU_BO2_Injector_FULLVER/releases) all of these files 
 - Double-click "bo2_injector.py"
 - Have fun, **the UI is bad but intuitive**
-
 - Also, on your WiiU you need to launch the Homebrew launcher (HBL) and a custom TCP Gecko you can [download here (direct dl-link)](https://github.com/wj444/tcpgecko/blob/master/tcpgecko.elf?raw=true)
 
 # Credits
@@ -35,7 +34,6 @@ Abusez pas de l'injecteur en multi, c'est déjà rempli de hacker. Amusez vous p
 - [Téléchargez](https://github.com/NexoDevelopment/WiiU_BO2_Injector_FULLVER/releases) tout les fichiers de ce repo
 - Lancez "bo2_injector.py"
 - Amusez-vous, **l'UI est moche mais *assez* intuitive**
-
 - D'ailleurs, vous devez aussi avant d'aller sur BO2, lancez l'Homebrew Launcher et une version modifié de TCPGecko [téléchargeable ici (lien de DL direct)](https://github.com/wj444/tcpgecko/blob/master/tcpgecko.elf?raw=true)
 
 # Aussi
