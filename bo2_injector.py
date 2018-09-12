@@ -614,58 +614,6 @@ def forceHost():
 			f_host = False
 
 
-class unlock_dlc_stuff(Thread):
-
-	def __init__(self):
-		Thread.__init__(self)
-
-	def run(self):
-
-		print("Unlocking weird stuff.. Wait around 10 seconds :)")
-
-		dvars = ["dlc0"
-		, "dlczm0"
-		, "dlc0_sale"
-		, "dlczm0_sale"
-		, "tu_allowDLCWeaponsByOwnership"
-		, "ui_showDLCMaps"
-		, "ui_isDLCPopupEnabled"
-		, "ui_isDLCRequiredPopupEnabled"
-		, "ui_DLCPopupDownloadStatusVisible"
-		, "SeasonPass"
-		, "tu6_enableDLCWeapons"
-		, "dlc1"
-		, "dlc1_sale"
-		, "ui_inGameStoreVisible"]
-
-		for i in range(0, len(dvars)):	
-			ret = find_dvar(dvars[i])
-			if ret != 0:
-				tcp.pokemem(ret + 0x18, 0x01000000)
-				tcp.pokemem(ret + 0x28, 0x01000000)
-
-
-		tcp.pokemem(0x02434cb8 + 0xBAFC0, 0x38600001) #IsDLC0_Included
-		tcp.pokemem(0x0243510C + 0xBAFC0, 0x38600001) #DoWeHaveContentPack
-		tcp.pokemem(0x02789E4C + 0xBAFC0, 0x38600001) #IsItemDLCAvaible
-		tcp.pokemem(0x027577CC + 0xBAFC0, 0x38600000) #UnlockablesDLCWeaponDisabled
-		tcp.pokemem(0x024359A4 + 0xBAFC0, 0x38600001)
-		tcp.pokemem(0x024332BC + 0xBAFC0, 0x38600001)
-		tcp.pokemem(0x024332BC + 0xBAFC0, 0x38600001)
-		tcp.pokemem(0x02788CE8 + 0xBAFC0, 0x38600000)
-		tcp.pokemem(0x02788CE8 + 0xBAFC0, 0x38600001)
-		tcp.pokemem(0x02789EF4 + 0xBAFC0, 0x38600000)
-		tcp.pokemem(0x02433F44 + 0xBAFC0, 0x38600000)
-		tcp.pokemem(0x0269DF48 + 0xBAFC0, 0x38600001)
-		tcp.pokemem(0x0269DF48 + 0xBAFC0, 0x38600001)
-		tcp.pokemem(0x0278B110 + 0xBAFC0, 0x38600001)
-		tcp.pokemem(0x028E572C + 0xBAFC0, 0x906a0001)
-
-		print("Game patched.")
-
-def unlock():
-	thread_unlock = unlock_dlc_stuff()
-	thread_unlock.start()
 
 def fix_n(str_):
 	if len(str_) == 1:
@@ -1052,9 +1000,6 @@ reset.grid(row=4, column=0)
 
 b_inf_t = Button(tab2, text="Infinite tokens", command=infToken)
 b_inf_t.grid(row=4, column=1)
-
-b_weird = Button(tab2, text="Unlock DLC", command=unlock)
-b_weird.grid(row=4, column=2)
 
 bl3 = Label(tab2, text=" ")
 bl3.grid(row=5, column = 0)
